@@ -1,0 +1,70 @@
+server
+
+vtp domain cdac
+vtp pass 123
+vtp version 2
+vtp mode server
+
+
+
+trans
+
+vtp domain cdac
+vtp pass 123
+vtp version 2
+vtp mode transparent
+
+
+client
+
+vtp domain cdac
+vtp pass 123
+vtp version 2
+vtp mode client
+
+
+
+server   --------                     only one
+vlan 10
+name hr
+exit
+
+vlan 20
+name seals
+
+vlan 30 
+name admin
+
+
+vlan 40
+name student
+
+trance-----------------------
+vlan 50
+name ca
+
+vlan 60
+name g1
+
+--------------------------------------
+
+manual terunk 1st 2 interface
+
+
+
+
+auto--------------------------------
+interface range fastethernet 0/1-6
+switchport mode trunk
+no shutdown
+
+up switch-------
+int range fast 0/1-2
+channel group 1 mode active
+
+down-----------
+int range fast 0/1-2
+channel group 1 mode passive
+
+
+console cable    --------

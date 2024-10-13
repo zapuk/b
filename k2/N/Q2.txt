@@ -1,0 +1,116 @@
+hostname s3
+
+vlan 10
+name pc
+exit
+
+vlan 20
+name lap
+exit
+
+vlan 30
+name web
+exit
+
+vlan 40
+name dns
+exit
+
+
+------------------------------------------------
+
+
+interface fastethernet 0/1
+switchport access vlan 10
+switch mode access
+exit
+
+interface fastethernet 0/2
+switchport access vlan 20
+switch mode access
+exit
+
+interface fastethernet 0/3
+switchport access vlan 30
+switch mode access
+exit
+
+interface fastethernet 0/4
+switchport access vlan 40
+switch mode access
+exit
+
+
+-------------------------------------------------
+
+interface fastethernet 0/6
+switch mode trunk
+no shutdown
+exit
+
+interface fastethernet 0/5
+switch mode trunk
+no shutdown
+exit
+
+--------------------------------------------------
+
+router
+
+
+
+interface fastethernet 0/0.40
+encapsulation dot1Q 40
+ip address 40.0.0.254 255.0.0.0
+no shutdown
+exit
+
+-----------------------------------------------
+
+
+---------------------------------------------
+
+swithch 
+
+interface fastethernet 0/7
+switchport mode trunk
+no shutdown
+exit
+
+-----------------------
+router
+
+
+interface fastethernet 0/0
+no shutdown
+
+
+
+add default getway
+10.0.0.254
+
+
+------------------------------------------
+
+router
+
+show ip int brief
+-------
+
+switch
+
+enable secret pass
+
+username s1 secret pass
+
+line console 0
+
+login local
+
+exit
+
+
+
+ 
+
+

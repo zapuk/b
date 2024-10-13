@@ -1,0 +1,74 @@
+
+IPV4
+Dynamic
+
+
+1 find ip by subnet vias host
+
+
+2 set ip set interface manual
+
+3 rip add router's known network
+
+4 give default network and the dns
+
+5 set email 
+
+
+IPV6 -------------------------------------------------------------
+
+ipv6 unicast-routing
+interface giga 0/0
+ip address 174.154.95.6 255.255.255.248
+ipv6 address 2010::6/64
+no shutdown 
+exit
+
+interface giga 0/1
+ip address 174.154.95.9 255.255.255.248
+ipv6 address 2020::1/64
+no shutdown 
+exit
+
+------------------------------------------------------------------- 
+
+ipv6 unicast-routing
+interface giga 0/0
+ip address 174.154.95.10 255.255.255.248
+ipv6 address 2020::2/64
+no shutdown 
+exit
+
+interface giga 0/1
+ip address 174.154.95.17 255.255.255.248
+ipv6 address 2030::1/64
+no shutdown 
+exit-----------------------------------------
+
+ipv6 unicast-routing
+interface giga 0/0
+ip address 174.154.95.18 255.255.255.248
+ipv6 address 2030::2/64
+no shutdown 
+exit
+
+interface giga 0/1
+ip address 174.154.95.30 255.255.255.248
+ipv6 address 2040::4/64
+no shutdown 
+exit-----------------------------------------
+
+
+
+ipv6 router rip cdac 
+interface giga 0/0
+ipv6 rip cdac enable
+exit
+
+ipv6 router rip cdac 
+interface giga 0/1
+ipv6 rip cdac enable
+exit
+
+
+set email dns web and all
